@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechCare Computer & Phone Repairs</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172033}
+header{background:#101827;color:white;padding:20px;text-align:center}
+nav{background:#1d4ed8;padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 8px;font-weight:bold}
+.hero{padding:45px 20px;text-align:center;background:#dbeafe}
+.hero h1{font-size:34px}
+.hero p{font-size:18px;line-height:1.6}
+section{padding:25px 16px;max-width:1000px;margin:auto}
+h2{text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px #0001;text-align:center}
+.card .emoji{font-size:42px}
+button,.btn{display:inline-block;border:0;border-radius:8px;background:#2563eb;color:white;padding:12px 16px;text-decoration:none;font-weight:bold;cursor:pointer}
+.whatsapp{background:#16a34a}
+input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #cbd5e1;border-radius:7px;font-size:16px}
+label{font-weight:bold}
+.contact{background:white;border-radius:12px;padding:20px}
+footer{background:#101827;color:white;text-align:center;padding:22px}
+</style>
+</head>
+<body>
+
+<header>
+<h2>🛠️ TechCare Computer & Phone Services</h2>
+<p>Reliable Computer Repairs, Phone Repairs & Accessories</p>
+</header>
+
+<nav>
+<a href="#services">Services</a>
+<a href="#shop">Accessories</a>
+<a href="#contact">Contact Us</a>
+</nav>
+
+<div class="hero">
+<h1>Welcome to TechCare</h1>
+<p>Need your computer or phone repaired?<br>
+We can help with repairs, software installation and accessories.</p>
+<a class="btn whatsapp" href="#" onclick="chat('Hello, I need your repair services');return false;">Chat on WhatsApp</a>
+</div>
+
+<section id="services">
+<h2>Our Repair Services</h2>
+<div class="grid">
+<div class="card">
+<div class="emoji">💻</div>
+<h3>Computer & Laptop Repair</h3>
+<p>Slow computers, startup issues, keyboard problems and hardware checks.</p>
+<button onclick="chat('I need computer or laptop repair')">Request Service</button>
+</div>
+<div class="card">
+<div class="emoji">📱</div>
+<h3>Phone Repair</h3>
+<p>Charging problems, screen issues and phone troubleshooting enquiries.</p>
+<button onclick="chat('I need phone repair')">Request Service</button>
+</div>
+<div class="card">
+<div class="emoji">🧑‍💻</div>
+<h3>Software Installation</h3>
+<p>Software setup, updates and operating system installation.</p>
+<button onclick="chat('I need software installation')">Request Service</button>
+</div>
+<div class="card">
+<div class="emoji">🖨️</div>
+<h3>Printer & Accessories</h3>
+<p>Printer enquiries, cables, chargers and computer accessories.</p>
+<button onclick="chat('I need printer or accessories support')">Request Service</button>
+</div>
+<div class="card">
+<div class="emoji">🔍</div>
+<h3>Device Diagnosis</h3>
+<p>Tell us what is wrong with your device so we can discuss next steps.</p>
+<button onclick="chat('I need device diagnosis')">Request Service</button>
+</div>
+<div class="card">
+<div class="emoji">🛒</div>
+<h3>Electronics & Accessories</h3>
+<p>Ask about availability and prices before placing an order.</p>
+<button onclick="chat('I want to order electronics or accessories')">Make Enquiry</button>
+</div>
+</div>
+</section>
+
+<section id="shop">
+<h2>Accessories & Electronics</h2>
+<div class="grid">
+<div class="card">
+<div class="emoji">🔌</div>
+<h3>Chargers & Cables</h3>
+<p>Ask about compatible chargers and cables.</p>
+<button onclick="chat('I want to ask about chargers and cables')">Ask Price</button>
+</div>
+<div class="card">
+<div class="emoji">🎧</div>
+<h3>Headphones</h3>
+<p>Ask about available audio accessories.</p>
+<button onclick="chat('I want to ask about headphones')">Ask Price</button>
+</div>
+<div class="card">
+<div class="emoji">⌨️</div>
+<h3>Computer Accessories</h3>
+<p>Keyboards, mice, storage and other accessories.</p>
+<button onclick="chat('I want computer accessories')">Ask Price</button>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Request a Repair or Order</h2>
+<div class="contact">
+<form onsubmit="sendRequest(event)">
+<label>Your Name</label>
+<input id="name" placeholder="Enter your name">
+
+<label>What do you need?</label>
+<select id="service">
+<option>Computer or laptop repair</option>
+<option>Phone repair</option>
+<option>Software installation</option>
+<option>Electronics or accessories</option>
+<option>Other enquiry</option>
+</select>
+
+<label>Device or Item</label>
+<input id="device" placeholder="e.g. HP laptop or Samsung phone">
+
+<label>Describe the problem or order</label>
+<textarea id="details" rows="4" placeholder="Write the details here"></textarea>
+
+<label>Your Area</label>
+<input id="area" placeholder="Your town or area (optional)">
+
+<button type="submit" class="whatsapp">Send Request on WhatsApp</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2>Payment & Delivery</h2>
+<div class="card">
+<p>Contact us to confirm the price, repair time, item availability and delivery or collection arrangements.</p>
+<p>Payment details will be discussed directly with the business after the order is confirmed.</p>
+</div>
+</section>
+
+<footer>
+<p>© <span id="year"></span> TechCare Computer & Phone Services</p>
+<p>Contact us for service availability and prices.</p>
+</footer>
+
+<script>
+// CHANGE THIS TO YOUR REAL WHATSAPP NUMBER.
+// Use country code 234 for Nigeria, without + or spaces.
+const WHATSAPP_NUMBER = "2348012345678";
+const BUSINESS_NAME = "TechCare Computer & Phone Services";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function chat(message){
+  if(WHATSAPP_NUMBER === "2348012345678"){
+    alert("Please replace the sample WhatsApp number in the code with your real number first.");
+    return;
+  }
+  window.location.href =
+    "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+}
+
+function sendRequest(event){
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const service = document.getElementById("service").value;
+  const device = document.getElementById("device").value.trim();
+  const details = document.getElementById("details").value.trim();
+  const area = document.getElementById("area").value.trim();
+
+  const message =
+    "Hello " + BUSINESS_NAME + ". I want to make a request." +
+    "\nName: " + name +
+    "\nService: " + service +
+    "\nDevice or item: " + device +
+    "\nDetails: " + details +
+    "\nArea: " + area +
+    "\nPlease tell me the price and next steps.";
+
+  chat(message);
+}
+</script>
+
+</body>
+</html>
